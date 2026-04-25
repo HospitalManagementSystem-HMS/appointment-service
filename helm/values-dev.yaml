@@ -1,0 +1,25 @@
+namespace: hms-dev
+replicaCount: 1
+image:
+  repository: suryaa112003/appointment-service
+  tag: latest
+  pullPolicy: Always
+service:
+  type: ClusterIP
+  port: 5002
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+env:
+  PORT: "5002"
+  MONGO_URI: "mongodb://admin:admin123@mongodb.hms-dev.svc.cluster.local:27017/hms_appointment?authSource=admin"
+  AUTH_SERVICE_URL: "http://auth-service.hms-dev.svc.cluster.local:5000"
+  USER_SERVICE_URL: "http://user-service.hms-dev.svc.cluster.local:5001"
+  NOTIFICATION_SERVICE_URL: "http://notification-service.hms-dev.svc.cluster.local:5004"
+secrets:
+  JWT_SECRET: "dev_super_secret_key_123"
+  INTERNAL_API_KEY: "dev_internal_key_change_me"

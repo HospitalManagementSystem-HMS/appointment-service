@@ -1,0 +1,23 @@
+namespace: hms-prod
+replicaCount: 2
+image:
+  repository: suryaa112003/appointment-service
+  tag: stable
+  pullPolicy: Always
+service:
+  type: ClusterIP
+  port: 5002
+  
+resources:
+  requests:
+    cpu: 250m
+    memory: 256Mi
+  limits:
+    cpu: 1000m
+    memory: 1Gi
+env:
+  PORT: "5002"
+  SERVICE_NAME: "appointment-service"
+secrets:
+  JWT_SECRET: "prod_secret_123"
+  INTERNAL_API_KEY: "prod_internal_key"
