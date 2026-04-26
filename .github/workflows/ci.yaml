@@ -13,7 +13,7 @@ jobs:
     with:
       service: "appointment-service"
       image: "ghcr.io/HospitalManagementSystem-HMS/appointment-service"
-      sonar_key: "HospitalManagementSystem-HMS_appointment-service_d55e3673-7e65-44cf-9262-96cdaf27cc58"
+      sonar_key: "HospitalManagementSystem-HMS_notification-service_f98da4f7-0a82-4b28-ab08-222b92ae0041"
       trigger: ${{ github.event_name }}
  
     secrets: inherit
